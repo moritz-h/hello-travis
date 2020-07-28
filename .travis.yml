@@ -13,6 +13,8 @@ jobs:
           update: true
           sources:
             - ubuntu-toolchain-r-test
+          packages:
+            - ninja-build
       env:
         - CC=gcc
         - CXX=g++
@@ -23,6 +25,8 @@ jobs:
           update: true
           sources:
             - ubuntu-toolchain-r-test
+          packages:
+            - ninja-build
       env:
         - CC=clang
         - CXX=clang++
@@ -33,6 +37,8 @@ jobs:
           update: true
           sources:
             - ubuntu-toolchain-r-test
+          packages:
+            - ninja-build
       env:
         - CC=gcc
         - CXX=g++
