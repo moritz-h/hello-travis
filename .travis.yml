@@ -8,16 +8,31 @@ dist: focal
 jobs:
   include:
     - name: "gcc-make"
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
       env:
         - CC=gcc
         - CXX=g++
         - GENERATOR="Unix Makefiles"
     - name: "clang-make"
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
       env:
         - CC=clang
         - CXX=clang++
         - GENERATOR="Unix Makefiles"
     - name: "gcc-ninja"
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
       env:
         - CC=gcc
         - CXX=g++
