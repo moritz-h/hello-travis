@@ -80,6 +80,8 @@ jobs:
 script:
   - mkdir build && cd build
   - cmake --version
+  - which cmake
+  - /usr/bin/cmake --version
   - cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE=Release
   - cmake --build . --target HelloTravis
   - ls -alF
