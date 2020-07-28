@@ -5,6 +5,24 @@ git:
 
 dist: focal
 
+matrix:
+  include:
+    - name: "gcc-make"
+      env:
+        - CC=gcc
+        - CXX=g++
+        - GENERATOR="Unix Makefiles"
+    - name: "clang-make"
+      env:
+        - CC=clang
+        - CXX=clang++
+        - GENERATOR="Unix Makefiles"
+    - name: "gcc-ninja"
+      env:
+        - CC=gcc
+        - CXX=g++
+        - GENERATOR="Ninja"
+
 script:
   - mkdir build && cd build
   - cmake .. -DCMAKE_BUILD_TYPE=Release
