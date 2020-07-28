@@ -14,22 +14,20 @@ jobs:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - ninja-build
+            - g++-9
+            - libgl1-mesa-dev
+            - libglu1-mesa-dev
+            - uuid-dev
+            - libunwind8-dev
+            - libxrandr-dev
+            - libxinerama-dev
+            - libxcursor-dev
+            - libxi-dev
+            - libcgal-qt5-dev
+            - libcgal-dev
       env:
         - CC=gcc
         - CXX=g++
-        - GENERATOR="Unix Makefiles"
-    - name: "clang-make"
-      addons:
-        apt:
-          update: true
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - ninja-build
-      env:
-        - CC=clang
-        - CXX=clang++
         - GENERATOR="Unix Makefiles"
     - name: "gcc-ninja"
       addons:
@@ -38,14 +36,49 @@ jobs:
           sources:
             - ubuntu-toolchain-r-test
           packages:
+            - g++-9
             - ninja-build
+            - libgl1-mesa-dev
+            - libglu1-mesa-dev
+            - uuid-dev
+            - libunwind8-dev
+            - libxrandr-dev
+            - libxinerama-dev
+            - libxcursor-dev
+            - libxi-dev
+            - libcgal-qt5-dev
+            - libcgal-dev
       env:
         - CC=gcc
         - CXX=g++
         - GENERATOR="Ninja"
+    - name: "clang-make"
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - clang-10
+            - libiomp-dev
+            - libgl1-mesa-dev
+            - libglu1-mesa-dev
+            - uuid-dev
+            - libunwind8-dev
+            - libxrandr-dev
+            - libxinerama-dev
+            - libxcursor-dev
+            - libxi-dev
+            - libcgal-qt5-dev
+            - libcgal-dev
+      env:
+        - CC=clang
+        - CXX=clang++
+        - GENERATOR="Unix Makefiles"
 
 script:
   - mkdir build && cd build
+  - cmake --version
   - cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE=Release
   - cmake --build . --target HelloTravis
   - ls -alF
