@@ -69,8 +69,8 @@ jobs:
             - libcgal-qt5-dev
             - libcgal-dev
       env:
-        - CC=clang-8
-        - CXX=clang++-8
+        - CC=clang-10
+        - CXX=clang++-10
         - GENERATOR="Unix Makefiles"
 
 install:
