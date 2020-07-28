@@ -11,8 +11,6 @@ jobs:
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - cmake
             - g++-9
@@ -34,8 +32,6 @@ jobs:
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - g++-9
             - ninja-build
@@ -57,11 +53,9 @@ jobs:
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - clang-10
-            - libiomp-dev
+            #- libiomp-dev
             - libgl1-mesa-dev
             - libglu1-mesa-dev
             - uuid-dev
