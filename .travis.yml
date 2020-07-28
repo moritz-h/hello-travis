@@ -7,7 +7,7 @@ dist: focal
 
 jobs:
   include:
-    - name: "gcc-make"
+    - name: "gcc-9 (Make)"
       addons:
         apt:
           update: true
@@ -25,14 +25,15 @@ jobs:
             - libcgal-qt5-dev
             - libcgal-dev
       env:
-        - CC=gcc
-        - CXX=g++
+        - CC=gcc-9
+        - CXX=g++-9
         - GENERATOR="Unix Makefiles"
-    - name: "gcc-ninja"
+    - name: "gcc-9 (Ninja)"
       addons:
         apt:
           update: true
           packages:
+            - cmake
             - g++-9
             - ninja-build
             - libgl1-mesa-dev
@@ -46,14 +47,15 @@ jobs:
             - libcgal-qt5-dev
             - libcgal-dev
       env:
-        - CC=gcc
-        - CXX=g++
-        - GENERATOR="Ninja"
-    - name: "clang-make"
+        - CC=gcc-9
+        - CXX=g++-9
+        - GENERATOR=Ninja
+    - name: "clang-10 (Make)"
       addons:
         apt:
           update: true
           packages:
+            - cmake
             - clang-10
             #- libiomp-dev
             - libgl1-mesa-dev
@@ -67,16 +69,15 @@ jobs:
             - libcgal-qt5-dev
             - libcgal-dev
       env:
-        - CC=clang
-        - CXX=clang++
+        - CC=clang-8
+        - CXX=clang++-8
         - GENERATOR="Unix Makefiles"
+
+install:
+  - . .travis/install-cuda-focal.sh
 
 script:
   - mkdir build && cd build
-  - cmake --version
-  - which cmake
-  - /usr/bin/cmake --version
-  - cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE=Release
-  - cmake --build . --target HelloTravis
-  - ls -alF
+  - /usr/bin/cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE=Release
+  - /usr/bin/cmake --build . --target HelloTravis
   - ./HelloTravis
