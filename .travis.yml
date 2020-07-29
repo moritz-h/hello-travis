@@ -73,8 +73,9 @@ jobs:
         - CXX=clang++-10
         - GENERATOR="Unix Makefiles"
 
-install:
-  - . .travis/install-cuda-focal.sh
+before_install:
+  - . .travis/travis_retry.sh
+  - . .travis/install-cuda.sh
 
 script:
   - mkdir build && cd build

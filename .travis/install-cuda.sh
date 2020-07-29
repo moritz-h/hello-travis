@@ -1,33 +1,4 @@
 #!/bin/bash
-# vim: nospell
-#
-# Install the core CUDA toolkit for a ubuntu-xenial (16.04) system. Requires the
-# CUDA environment variable to be set to the required version.
-#
-# Since this script updates environment variables, to execute correctly you must
-# 'source' this script, rather than executing it in a sub-process.
-#
-
-travis_retry() {
-  local result=0
-  local count=1
-  while [ $count -le 3 ]; do
-    [ $result -ne 0 ] && {
-      echo -e "\n${ANSI_RED}The command \"$@\" failed. Retrying, $count of 3.${ANSI_RESET}\n" >&2
-    }
-    # ! { } ignores set -e, see https://stackoverflow.com/a/4073372
-    ! { "$@"; result=$?; }
-    [ $result -eq 0 ] && break
-    count=$(($count + 1))
-    sleep 1
-  done
-
-  [ $count -gt 3 ] && {
-    echo -e "\n${ANSI_RED}The command \"$@\" failed 3 times.${ANSI_RESET}\n" >&2
-  }
-
-  return $result
-}
 
 export CUDA=10-1-local-10.1.168-418.67_1.0-1
 export CUDA_APT_LIST=10-1-local-10.1.168-418.67
