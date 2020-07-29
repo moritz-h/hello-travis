@@ -14,64 +14,64 @@ jobs:
           packages:
             - cmake
             - g++-9
-            - libgl1-mesa-dev
-            - libglu1-mesa-dev
-            - uuid-dev
-            - libunwind8-dev
-            - libxrandr-dev
-            - libxinerama-dev
-            - libxcursor-dev
-            - libxi-dev
-            - libcgal-qt5-dev
-            - libcgal-dev
+#            - libgl1-mesa-dev
+#            - libglu1-mesa-dev
+#            - uuid-dev
+#            - libunwind8-dev
+#            - libxrandr-dev
+#            - libxinerama-dev
+#            - libxcursor-dev
+#            - libxi-dev
+#            - libcgal-qt5-dev
+#            - libcgal-dev
       env:
         - CC=gcc-9
         - CXX=g++-9
         - GENERATOR="Unix Makefiles"
-    - name: "gcc-9 (Ninja)"
-      addons:
-        apt:
-          update: true
-          packages:
-            - cmake
-            - g++-9
-            - ninja-build
-            - libgl1-mesa-dev
-            - libglu1-mesa-dev
-            - uuid-dev
-            - libunwind8-dev
-            - libxrandr-dev
-            - libxinerama-dev
-            - libxcursor-dev
-            - libxi-dev
-            - libcgal-qt5-dev
-            - libcgal-dev
-      env:
-        - CC=gcc-9
-        - CXX=g++-9
-        - GENERATOR=Ninja
-    - name: "clang-10 (Make)"
-      addons:
-        apt:
-          update: true
-          packages:
-            - cmake
-            - clang-10
-            #- libiomp-dev
-            - libgl1-mesa-dev
-            - libglu1-mesa-dev
-            - uuid-dev
-            - libunwind8-dev
-            - libxrandr-dev
-            - libxinerama-dev
-            - libxcursor-dev
-            - libxi-dev
-            - libcgal-qt5-dev
-            - libcgal-dev
-      env:
-        - CC=clang-10
-        - CXX=clang++-10
-        - GENERATOR="Unix Makefiles"
+#    - name: "gcc-9 (Ninja)"
+#      addons:
+#        apt:
+#          update: true
+#          packages:
+#            - cmake
+#            - g++-9
+#            - ninja-build
+#            - libgl1-mesa-dev
+#            - libglu1-mesa-dev
+#            - uuid-dev
+#            - libunwind8-dev
+#            - libxrandr-dev
+#            - libxinerama-dev
+#            - libxcursor-dev
+#            - libxi-dev
+#            - libcgal-qt5-dev
+#            - libcgal-dev
+#      env:
+#        - CC=gcc-9
+#        - CXX=g++-9
+#        - GENERATOR=Ninja
+#    - name: "clang-10 (Make)"
+#      addons:
+#        apt:
+#          update: true
+#          packages:
+#            - cmake
+#            - clang-10
+#            #- libiomp-dev
+#            - libgl1-mesa-dev
+#            - libglu1-mesa-dev
+#            - uuid-dev
+#            - libunwind8-dev
+#            - libxrandr-dev
+#            - libxinerama-dev
+#            - libxcursor-dev
+#            - libxi-dev
+#            - libcgal-qt5-dev
+#            - libcgal-dev
+#      env:
+#        - CC=clang-10
+#        - CXX=clang++-10
+#        - GENERATOR="Unix Makefiles"
 
 before_install:
   - . .travis/travis_retry.sh
