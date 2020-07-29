@@ -7,7 +7,7 @@ dist: focal
 
 jobs:
   include:
-    - name: "gcc-9 Release (Make)"
+    - name: "gcc-9 / Make / Release"
       addons:
         apt:
           update: true
@@ -29,7 +29,7 @@ jobs:
         - CXX=g++-9
         - GENERATOR="Unix Makefiles"
         - BUILD_TYPE="Release"
-    - name: "gcc-9 Debug (Make)"
+    - name: "gcc-9 / Make / Debug"
       addons:
         apt:
           update: true
@@ -51,7 +51,7 @@ jobs:
         - CXX=g++-9
         - GENERATOR="Unix Makefiles"
         - BUILD_TYPE="Debug"
-    - name: "gcc-9 Release (Ninja)"
+    - name: "gcc-9 / Ninja / Release"
       addons:
         apt:
           update: true
@@ -74,7 +74,7 @@ jobs:
         - CXX=g++-9
         - GENERATOR=Ninja
         - BUILD_TYPE="Release"
-    - name: "clang-10 Release (Make)"
+    - name: "clang-10 / Make / Release"
       addons:
         apt:
           update: true
