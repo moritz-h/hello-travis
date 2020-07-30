@@ -81,7 +81,7 @@ jobs:
           packages:
             - cmake
             - clang-10
-            #- libiomp-dev
+            - libomp-10-dev
             - libgl1-mesa-dev
             - libglu1-mesa-dev
             - uuid-dev
