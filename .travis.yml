@@ -24,6 +24,7 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
+            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -46,6 +47,7 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
+            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -69,6 +71,7 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
+            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -92,6 +95,7 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
+            - libpng-dev # For adios
       env:
         - CC=clang-10
         - CXX=clang++-10
@@ -105,6 +109,5 @@ before_install:
 script:
   - mkdir build && cd build
     # Use absolute path to cmake, otherwise we will use the travis version (3.12, too old).
-    # TODO turn adios back to on
-  - /usr/bin/cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE="$BUILD_TYPE" -DCMAKE_CXX_FLAGS=-w -DENABLE_CUDA=ON -DSUPPRESS_CUDA_WARNINGS=TRUE -DBUILD_ADIOS_PLUGIN_PLUGIN=OFF -DBUILD_PROTEIN_CUDA_PLUGIN=ON -DBUILD_MEGAMOL101_PLUGIN=ON -DBUILD_REMOTE_PLUGIN=ON
+  - /usr/bin/cmake .. -G"$GENERATOR" -DCMAKE_BUILD_TYPE="$BUILD_TYPE" -DCMAKE_CXX_FLAGS=-w -DENABLE_CUDA=ON -DSUPPRESS_CUDA_WARNINGS=TRUE -DBUILD_ADIOS_PLUGIN_PLUGIN=ON -DBUILD_PROTEIN_CUDA_PLUGIN=ON -DBUILD_MEGAMOL101_PLUGIN=ON -DBUILD_REMOTE_PLUGIN=ON
   - /usr/bin/cmake --build . --target install
