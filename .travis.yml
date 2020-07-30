@@ -24,7 +24,6 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
-            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -47,7 +46,6 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
-            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -71,7 +69,6 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
-            - libpng-dev # For adios
       env:
         - CC=gcc-9
         - CXX=g++-9
@@ -95,7 +92,6 @@ jobs:
             - libxi-dev
             - libcgal-qt5-dev
             - libcgal-dev
-            - libpng-dev # For adios
       env:
         - CC=clang-10
         - CXX=clang++-10
