@@ -5,11 +5,3 @@
 
 trigger:
 - master
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
-- script: |
-    make
-  displayName: 'make'
