@@ -1,3 +1,0 @@
-archvis_parts/balken.gltf
-archvis_parts/diagonalelement.gltf
-archvis_parts/zwischenelement.gltf
