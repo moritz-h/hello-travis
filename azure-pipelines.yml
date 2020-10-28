@@ -5,11 +5,11 @@
 
 trigger:
 - master
-- *
+- b*
 
 pr:
 - master
-- *
+- b*
 
 pool:
   name: 'default'
