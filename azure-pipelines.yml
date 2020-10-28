@@ -4,12 +4,10 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/c-cpp/gcc
 
 trigger:
-- master
-- b*
+- "*"
 
 pr:
-- master
-- b*
+- "*"
 
 pool:
   name: 'default'
