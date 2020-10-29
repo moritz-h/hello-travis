@@ -11,8 +11,8 @@ pool:
 steps:
 - task: CMake@1
   inputs:
-    cmakeArgs: 
+    cmakeArgs: ..
 - script: |
     cd build
-    cmake --version
+    cmake --build .
   displayName: 'build'
