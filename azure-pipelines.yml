@@ -17,5 +17,5 @@ steps:
   inputs:
     cmakeArgs: 
 - script: |
-    make
-  displayName: 'make'
+    "cmake --build ."
+  displayName: 'build'
