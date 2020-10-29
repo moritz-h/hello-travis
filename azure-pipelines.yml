@@ -18,5 +18,5 @@ steps:
     cmakeArgs: 
 - script: |
     cd build
-    cmake --build .
+    cmake --version
   displayName: 'build'
