@@ -7,10 +7,14 @@ pr:
 
 strategy:
   matrix:
-    windows-10:
+    windows-10-release:
       agentName: BEIGUAN
-    ubuntu-1804:
-      agentName: benga
+      configuration: Release
+      generator: "Visual Studio 16 2019"
+    windows-10-debug:
+      agentName: BEIGUAN
+      configuration: Debug
+      generator: "Visual Studio 16 2019"
 
 pool:
   name: 'default'
@@ -24,4 +28,4 @@ steps:
 - script: |
     cd build
     cmake --build .
-  displayName: 'build'
+  displayName: 'buildfoobar'
