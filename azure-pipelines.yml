@@ -23,9 +23,10 @@ pool:
 
 steps:
 - task: CMake@1
+  displayName: 'CMake configure'
   inputs:
     cmakeArgs: ..
-- script: |
-    cd build
-    cmake --build .
-  displayName: 'buildfoobar'
+- task: CMake@1
+  displayName: 'CMake build'
+  inputs:
+    cmakeArgs: --build .
