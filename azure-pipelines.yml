@@ -5,8 +5,16 @@ trigger:
 pr:
 - master
 
+strategy:
+  matrix:
+    windows-10:
+      agentName: BEIGUAN
+      
+
 pool:
   name: 'default'
+  demands:
+  - Agent.Name -equals $(agentName)
 
 steps:
 - task: CMake@1
