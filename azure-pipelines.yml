@@ -23,10 +23,10 @@ pool:
 
 steps:
 - task: CMake@1
-  displayName: 'CMake configure'
+  displayName: 'CMake Configure'
   inputs:
-    cmakeArgs: ..
+    cmakeArgs: .. -G"$(generator)" -A"x64" -DCMAKE_BUILD_TYPE=$(configuration)
 - task: CMake@1
-  displayName: 'CMake build'
+  displayName: 'CMake Build'
   inputs:
     cmakeArgs: --build .
