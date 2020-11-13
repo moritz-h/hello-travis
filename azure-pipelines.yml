@@ -53,7 +53,7 @@ jobs:
   - task: CMake@1
     displayName: 'CMake Configure'
     inputs:
-      cmakeArgs: '.. -G"$(generator)" -A"x64" -DCMAKE_BUILD_TYPE=$(configuration)'
+      cmakeArgs: '.. -G"$(generator)" -DCMAKE_BUILD_TYPE=$(configuration)'
   - task: CMake@1
     displayName: 'CMake Build'
     inputs:
