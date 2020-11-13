@@ -9,14 +9,14 @@ jobs:
 - job: windows
   strategy:
     matrix:
-    windows-10-release:
-      agentName: BEIGUAN
-      configuration: Release
-      generator: 'Visual Studio 16 2019'
-    windows-10-debug:
-      agentName: BEIGUAN
-      configuration: Debug
-      generator: 'Visual Studio 16 2019'
+      windows-10-release:
+        agentName: BEIGUAN
+        configuration: Release
+        generator: 'Visual Studio 16 2019'
+      windows-10-debug:
+        agentName: BEIGUAN
+        configuration: Debug
+        generator: 'Visual Studio 16 2019'
 
   pool:
     name: 'default'
