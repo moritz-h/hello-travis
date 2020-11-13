@@ -6,22 +6,48 @@ pr:
 - master
 
 jobs:
-- job: windows
+- job: Windows
   strategy:
     matrix:
-      windows-10-release:
-        agentName: BEIGUAN
+      'VS2019 Release':
         configuration: Release
         generator: 'Visual Studio 16 2019'
-      windows-10-debug:
-        agentName: BEIGUAN
+      'VS2019 Debug':
         configuration: Debug
         generator: 'Visual Studio 16 2019'
 
   pool:
     name: 'default'
     demands:
-    - Agent.Name -equals $(agentName)
+    - cmake
+    - VisualStudio_16.0
+    - megamol_build_enabled
+
+  steps:
+  - task: CMake@1
+    displayName: 'CMake Configure'
+    inputs:
+      cmakeArgs: '.. -G"$(generator)" -A"x64"'
+  - task: CMake@1
+    displayName: 'CMake Build'
+    inputs:
+      cmakeArgs: '--build . --config $(configuration)'
+
+- job: Linux
+  strategy:
+    matrix:
+      'Release':
+        configuration: Release
+        generator: 'Unix Makefiles'
+      'Debug':
+        configuration: Debug
+        generator: 'Unix Makefiles'
+
+  pool:
+    name: 'default'
+    demands:
+    - cmake
+    - megamol_build_enabled
 
   steps:
   - task: CMake@1
@@ -31,4 +57,4 @@ jobs:
   - task: CMake@1
     displayName: 'CMake Build'
     inputs:
-      cmakeArgs: '--build . --config $(configuration)'
+      cmakeArgs: '--build .'
