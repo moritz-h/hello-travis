@@ -19,6 +19,7 @@ jobs:
   pool:
     name: 'default'
     demands:
+    - Agent.OS -equals Windows_NT
     - cmake
     - VisualStudio_16.0
     - megamol_build_enabled
@@ -46,6 +47,7 @@ jobs:
   pool:
     name: 'default'
     demands:
+    - Agent.OS -equals Linux
     - cmake
     - megamol_build_enabled
 
