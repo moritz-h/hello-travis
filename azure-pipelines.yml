@@ -37,11 +37,25 @@ jobs:
 - job: Linux
   strategy:
     matrix:
-      'Release':
+      'GCC8 / Make / Release':
+        cCompiler: gcc-8
+        cxxCompiler: g++-8
         configuration: Release
         generator: 'Unix Makefiles'
-      'Debug':
+      'GCC8 / Make / Debug':
+        cCompiler: gcc-8
+        cxxCompiler: g++-8
         configuration: Debug
+        generator: 'Unix Makefiles'
+      'GCC8 / Ninja / Release':
+        cCompiler: gcc-8
+        cxxCompiler: g++-8
+        configuration: Release
+        generator: 'Ninja'
+      'Clang10 / Make / Release':
+        cCompiler: clang-10
+        cxxCompiler: clang++-10
+        configuration: Release
         generator: 'Unix Makefiles'
 
   pool:
@@ -55,7 +69,7 @@ jobs:
   - task: CMake@1
     displayName: 'CMake Configure'
     inputs:
-      cmakeArgs: '.. -G"$(generator)" -DCMAKE_BUILD_TYPE=$(configuration)'
+      cmakeArgs: '.. -G"$(generator)" -DCMAKE_C_COMPILER=$(cCompiler) -DCMAKE_CXX_COMPILER=$(cxxCompiler) -DCMAKE_BUILD_TYPE=$(configuration)'
   - task: CMake@1
     displayName: 'CMake Build'
     inputs:
