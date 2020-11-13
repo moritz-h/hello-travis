@@ -15,6 +15,7 @@ jobs:
       'VS2019 Debug':
         configuration: Debug
         generator: 'Visual Studio 16 2019'
+    maxParallel: 1
 
   pool:
     name: 'default'
