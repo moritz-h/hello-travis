@@ -69,7 +69,7 @@ jobs:
   steps:
   - bash: |
      nproc
-     ##vso[task.setvariable variable=numberOfCpuCores]5
+     echo '##vso[task.setvariable variable=numberOfCpuCores]5'
     displayName: 'Bash Get CPU Cores'
   - task: CMake@1
     displayName: 'CMake Configure'
